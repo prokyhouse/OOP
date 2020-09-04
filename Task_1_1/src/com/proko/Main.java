@@ -40,9 +40,13 @@ public class Main extends HeapSort {
     static void printArray(int arr[]) {
         int n = arr.length;
         System.out.print("{");
-        for (int j : arr) {
-            System.out.print(j + ",");
+        int counter = 0;
+        for (int j = 0; j < arr.length -1; j++) {
+            System.out.print(arr[j] + ",");
+            counter++;
         }
+        System.out.print(arr[counter]);
+
         System.out.print("}\n");
     }
 
