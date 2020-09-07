@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+* BEFORE WE START - ДИСКЛЕЙМЕР
+* Данный код писался до получения сообщения о правилах форматирования
+* и поэтому в структуре могут быть недочеты.
+* Ошибки/рекоммендации или советы принимаются на почту
+* k.prokofev1@g.nsu.ru или @proko23 в Telegram
+*/
 public class Main extends HeapSort {
 
     public static void main(String[] args) {
