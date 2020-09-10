@@ -1,8 +1,15 @@
 package com.proko;
 
-// Пирамидальная сортировка
+/**
+ * Heapsort class
+ */
 public class HeapSort {
+    /**
+     * Sorting method
+     * @param arr - array to sort.
+     */
     public void sort(int arr[]) {
+        
         int n = arr.length;
 
         // Построение кучи (перегруппируем массив)
@@ -21,8 +28,15 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Procedure for converting a subtree to a binary heap with the root node i,
+     * which is an index in arr[].
+     * @param arr sorting array.
+     * @param n is the heap size.
+     * @param i root node.
+     */
     // Процедура для преобразования в двоичную кучу поддерева с корневым узлом i, что является
-// индексом в arr[]. n - размер кучи
+    // индексом в arr[]. n - размер кучи
     void heapify(int arr[], int n, int i) {
         int largest = i; // Инициализируем наибольший элемент как корень
         int l = 2 * i + 1; // левый = 2*i + 1

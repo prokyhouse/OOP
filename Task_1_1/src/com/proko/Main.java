@@ -43,6 +43,10 @@ public class Main extends HeapSort {
         printArray(arrToSort);
     }
 
+    /**
+     * @param arr array to print
+     */
+
     /* Вспомогательная функция для вывода на экран массива размера n */
     static void printArray(int arr[]) {
         int n = arr.length;
@@ -56,6 +60,11 @@ public class Main extends HeapSort {
 
         System.out.print("}\n");
     }
+
+    /**
+     * @param integers List to convert
+     * @return converted array
+     */
 
     //Код из интернета для конвертации массива
     public static int[] convertIntegers(List<Integer> integers) {
