@@ -5,25 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/*
-* BEFORE WE START - ДИСКЛЕЙМЕР
-* Данный код писался до получения сообщения о правилах форматирования
-* и поэтому в структуре могут быть недочеты.
-* Ошибки/рекоммендации или советы принимаются на почту
-* k.prokofev1@g.nsu.ru или @proko23 в Telegram
-*/
+
 public class Main extends HeapSort {
 
     public static void main(String[] args) {
 
-        //Создаем ArrayList для считывания строки (мы не знаем ее размер)
         ArrayList arr = new ArrayList();
         Scanner in = new Scanner(System.in);
-        //Считываем
+
         String input = in.nextLine();
-        //Удаляем ненужные "{" и "}"
+
         String arrayString = input.replaceAll("\\{|\\}", "");
-        //Парсим строку с запятыми и извлекаем числа в arr
+
         for (String retval : arrayString.split(",", 100000)) {
             try {
                 arr.add(Integer.parseInt(retval));
@@ -32,14 +25,12 @@ public class Main extends HeapSort {
             e.printStackTrace();
             }
         }
-        //Переносим данные из безразмерного ArrayList в массив
+
         int[] arrToSort = convertIntegers(arr);
 
-        //создаем объект класса и сортируем
         HeapSort ob = new HeapSort();
         ob.sort(arrToSort);
 
-        //Выводим в спомогательной функции
         printArray(arrToSort);
     }
 
@@ -47,7 +38,7 @@ public class Main extends HeapSort {
      * @param arr array to print
      */
 
-    /* Вспомогательная функция для вывода на экран массива размера n */
+
     static void printArray(int arr[]) {
         int n = arr.length;
         System.out.print("{");
@@ -66,7 +57,6 @@ public class Main extends HeapSort {
      * @return converted array
      */
 
-    //Код из интернета для конвертации массива
     public static int[] convertIntegers(List<Integer> integers) {
         int[] ret = new int[integers.size()];
         for (int i = 0; i < ret.length; i++) {

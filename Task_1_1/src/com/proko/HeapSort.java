@@ -1,29 +1,23 @@
 package com.proko;
 
-/**
- * Heapsort class
- */
+
 public class HeapSort {
     /**
      * Sorting method
      * @param arr - array to sort.
      */
-    public void sort(int arr[]) {
+    public static void sort(int arr[]) {
         
         int n = arr.length;
 
-        // Построение кучи (перегруппируем массив)
         for (int i = n / 2 - 1; i >= 0; i--)
             heapify(arr, n, i);
 
-        // Один за другим извлекаем элементы
         for (int i = n - 1; i >= 0; i--) {
-            // Перемещаем текущий корень в конец (swap)
             int temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
 
-            // Вызываем процедуру heapify на уменьшенной куче
             heapify(arr, i, 0);
         }
     }
@@ -37,7 +31,7 @@ public class HeapSort {
      */
     // Процедура для преобразования в двоичную кучу поддерева с корневым узлом i, что является
     // индексом в arr[]. n - размер кучи
-    void heapify(int arr[], int n, int i) {
+    void static heapify(int arr[], int n, int i) {
         int largest = i; // Инициализируем наибольший элемент как корень
         int l = 2 * i + 1; // левый = 2*i + 1
         int r = 2 * i + 2; // правый = 2*i + 2
