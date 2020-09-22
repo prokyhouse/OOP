@@ -15,22 +15,27 @@ public class MyStack {
     }
 
     /**
-     * @param o push smth to stack
+     * @param o smth that needed to push into stack
      */
     public void push(Object o) {
-        if (position >= size) {
+        try {
+        arr[position++] = o;
+        } catch (java.lang.ArrayIndexOutOfBoundsException e){
             System.out.println("Stack is full");
             return;
         }
-        arr[position++] = o;
     }
 
     public Object pop() {
-        if (position == 0) {
-            System.out.println("Stack is empty");
-            return null;
-        }
-        return arr[--position];
+
+
+        try {
+            return arr[--position];
+        } catch (java.lang.ArrayIndexOutOfBoundsException e){
+        System.out.println("Stack is full");
+        System.out.println("Stack is empty");
+        return null;
+    }
     }
 
     /**
