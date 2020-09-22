@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="02b788d6-5ad4-48cc-ad23-50a015dc3f8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/proko/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/proko/HeapSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/proko/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/proko/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/proko/HeapSortTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/proko/HeapSortTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +42,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -96,37 +93,48 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599454860099">
-      <screen x="0" y="23" width="1440" height="810" />
+    <state x="184" y="74" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600760660911">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="184" y="74" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.-346.1366.768@0.0.1440.900" timestamp="1600760660911" />
     <state x="184" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.810@0.23.1440.810" timestamp="1599454860099" />
     <state x="479" y="330" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1599669054445">
       <screen x="0" y="23" width="1440" height="810" />
     </state>
     <state x="479" y="330" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.810@0.23.1440.810" timestamp="1599669054445" />
-    <state width="1358" height="71" key="GridCell.Tab.0.bottom" timestamp="1599465686029">
-      <screen x="0" y="23" width="1440" height="810" />
+    <state width="1169" height="302" key="GridCell.Tab.0.bottom" timestamp="1600761013429">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1169" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.-323.1366.745@0.0.1440.900" timestamp="1600761013429" />
+    <state width="1169" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.-346.1366.768@0.0.1440.900" timestamp="1600760594379" />
     <state width="1358" height="71" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1599465686029" />
-    <state width="1358" height="71" key="GridCell.Tab.0.center" timestamp="1599465686029">
-      <screen x="0" y="23" width="1440" height="810" />
+    <state width="1169" height="302" key="GridCell.Tab.0.center" timestamp="1600761013428">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1169" height="302" key="GridCell.Tab.0.center/0.0.1440.900/1440.-323.1366.745@0.0.1440.900" timestamp="1600761013428" />
+    <state width="1169" height="302" key="GridCell.Tab.0.center/0.0.1440.900/1440.-346.1366.768@0.0.1440.900" timestamp="1600760594377" />
     <state width="1358" height="71" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1599465686029" />
-    <state width="1358" height="71" key="GridCell.Tab.0.left" timestamp="1599465686028">
-      <screen x="0" y="23" width="1440" height="810" />
+    <state width="1169" height="302" key="GridCell.Tab.0.left" timestamp="1600761013427">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1169" height="302" key="GridCell.Tab.0.left/0.0.1440.900/1440.-323.1366.745@0.0.1440.900" timestamp="1600761013427" />
+    <state width="1169" height="302" key="GridCell.Tab.0.left/0.0.1440.900/1440.-346.1366.768@0.0.1440.900" timestamp="1600760594376" />
     <state width="1358" height="71" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1599465686028" />
-    <state width="1358" height="71" key="GridCell.Tab.0.right" timestamp="1599465686029">
-      <screen x="0" y="23" width="1440" height="810" />
+    <state width="1169" height="302" key="GridCell.Tab.0.right" timestamp="1600761013428">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1169" height="302" key="GridCell.Tab.0.right/0.0.1440.900/1440.-323.1366.745@0.0.1440.900" timestamp="1600761013428" />
+    <state width="1169" height="302" key="GridCell.Tab.0.right/0.0.1440.900/1440.-346.1366.768@0.0.1440.900" timestamp="1600760594378" />
     <state width="1358" height="71" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1599465686029" />
-    <state x="208" y="23" key="SettingsEditor" timestamp="1599455629078">
-      <screen x="0" y="23" width="1440" height="810" />
+    <state x="208" y="0" key="SettingsEditor" timestamp="1600760854863">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="208" y="0" key="SettingsEditor/0.0.1440.900/1440.-323.1366.745@0.0.1440.900" timestamp="1600760854863" />
     <state x="208" y="23" key="SettingsEditor/0.23.1440.810@0.23.1440.810" timestamp="1599455629078" />
-    <state x="417" y="327" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1599454846086">
-      <screen x="0" y="23" width="1440" height="810" />
+    <state x="417" y="338" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1600760837130">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="417" y="338" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.900/1440.-323.1366.745@0.0.1440.900" timestamp="1600760837130" />
     <state x="417" y="327" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1440.810@0.23.1440.810" timestamp="1599454846086" />
     <state x="499" y="245" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1599455664629">
       <screen x="0" y="23" width="1440" height="810" />
