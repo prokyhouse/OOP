@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fb13591-c6f2-45b4-af1f-800432924b62" name="Default Changelist" comment="" />
+    <list default="true" id="5fb13591-c6f2-45b4-af1f-800432924b62" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Task-2-1/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
