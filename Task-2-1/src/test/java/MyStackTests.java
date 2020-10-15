@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.Iterator;
 
 public class MyStackTests {
@@ -10,7 +11,7 @@ public class MyStackTests {
     @Test
     public void test1() {
         MyStack<Integer> stack;
-        stack = new MyStack<Integer>();
+        stack = new MyStack<>();
         ArrayList<Integer> arr = new ArrayList<Integer>();
         for (int i = 1; i < 100; ++i) {
             if ((i * 5) % 4 == 0) {
@@ -86,15 +87,16 @@ public class MyStackTests {
     //Test for my iterator
     @Test
     public void test5() {
+
         for (int i = 0; i < 300; ++i) {
             MyStack<Integer> stack = new MyStack<Integer>();
             ArrayList<Integer> arr = new ArrayList<Integer>();
             stack.push(i);
             arr.add(i);
-            Iterator<Integer> MyIter = stack.iterator();
-            Iterator<Integer> ArrIter = arr.iterator();
-            while (MyIter.hasNext()) {
-                Assert.assertEquals(MyIter.next(), ArrIter.next());
+            Iterator<Integer> iter = stack.iterator();
+            Iterator<Integer> iter2 = arr.iterator();
+            while (iter.hasNext()) {
+                Assert.assertEquals(iter.next(), iter2.next());
             }
         }
     }

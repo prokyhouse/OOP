@@ -1,4 +1,5 @@
 
+import java.util.Arrays;
 import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -11,19 +12,36 @@ import java.util.NoSuchElementException;
 
 public class MyStack<T> {
 
-    private StackElement<T> positionStackElement = null;
-    private StackElement<T> head = null;
-    private int position = 0;
+   // private StackElement<T> positionStackElement = null;
+   // private StackElement<T> head = null;
 
+    private static final int DEFAULT_CAPACITY = 10;
+    private T[] stackArray;
+   // private int position = 0;
+    private int size = 0;
+    private int capacity;
+
+
+    public MyStack(){
+        this.capacity = DEFAULT_CAPACITY;
+        stackArray = (T[]) new Object[DEFAULT_CAPACITY];
+    }
+
+    public MyStack(int capacity) {
+        this.capacity = capacity;
+        stackArray = (T[]) new Object[capacity];
+    }
     /**
      * Method that pushes the element to the stack.
      *
      * @param element element that we need to put in the stack.
      */
     public void push(T element) {
-        position++;
-        positionStackElement = new StackElement<>(element, positionStackElement);
-        head = positionStackElement;
+        if (this.size >= stackArray.length) {
+            int newSize = size + (size >> 1);
+            stackArray = Arrays.copyOf(stackArray, newSize);
+        }
+        stackArray[size++] = element;
     }
 
     /**
@@ -33,17 +51,15 @@ public class MyStack<T> {
      * @throws IndexOutOfBoundsException throws this exception if the stack is empty.
      */
     public T pop() throws IndexOutOfBoundsException {
-        if (position == 0) {
+        if (size <= 0) {
             throw new IndexOutOfBoundsException();
         } else {
-            T element = positionStackElement.getElement();
-            positionStackElement = positionStackElement.getPreviousElement();
-            if (positionStackElement != null) {
-                positionStackElement.setNextElement(null);
-            }
-            position--;
-            if (position == 0) {
-                head = null;
+            T element = stackArray[--size];
+            stackArray[size] = null;
+
+            int reducedSize = size;
+            if (size >= capacity && size < (reducedSize + (reducedSize << 1))) {
+                System.arraycopy(stackArray, 0, stackArray, 0, size);
             }
             return element;
         }
@@ -56,22 +72,14 @@ public class MyStack<T> {
      */
     public Iterator<T> iterator() {
         return new Iterator<T>() {
-            private StackElement<T> current = head;
+            private int position = 0;
 
             public boolean hasNext() {
-                return current != null;
+                return !(position == size);
             }
 
             public T next() throws NoSuchElementException {
-                if (position == 0) {
-                    throw new EmptyStackException();
-                }
-                T result = current.getElement();
-                if (!hasNext()) {
-                    throw new NoSuchElementException("End of the stack.");
-                }
-                current = current.getNextElement();
-                return result;
+                return stackArray[position++];
             }
         };
     }
@@ -83,7 +91,7 @@ public class MyStack<T> {
      * @return 1 - if the stack is empty, otherwise returns 0.
      */
     public boolean isEmpty() {
-        return position == 0;
+        return size == 0;
     }
 
     /**
@@ -92,6 +100,6 @@ public class MyStack<T> {
      * @return amount of pushed elements in the stack.
      */
     public int count() {
-        return position;
+        return size;
     }
 }
