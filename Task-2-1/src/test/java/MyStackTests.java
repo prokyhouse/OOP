@@ -95,6 +95,10 @@ public class MyStackTests {
             arr.add(i);
             Iterator<Integer> iter = stack.iterator();
             Iterator<Integer> iter2 = arr.iterator();
+
+            for (int k : arr){
+                Assert.assertEquals(iter.next(), iter2.next());
+            }
             while (iter.hasNext()) {
                 Assert.assertEquals(iter.next(), iter2.next());
             }
