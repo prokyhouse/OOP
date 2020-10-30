@@ -13,40 +13,38 @@ public class WordFinder {
 
     public static String findWord(String file, String word) throws IOException {
 
+        final int BUF_LENGTH = 100000;
         String answer = "";
         int fileIndex;
 
-        char[] buf = new char[10000000];
-        char[] subBuf = new char[10000000];
+        char[] buf = new char[BUF_LENGTH];
+        char[] subBuf = new char[BUF_LENGTH];
         StringBuffer fileData = new StringBuffer();
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        int numRead = reader.read(buf,0,buf.length);
+        int numRead = reader.read(buf,0,word.length());
         String readData = String.valueOf(buf, 0, word.length());
 
-        while (numRead != -1 ) {
+        while ((numRead=reader.read(buf,word.length(),BUF_LENGTH-word.length())) != -1 ) {
 
-                readData += String.valueOf(buf, word.length(), numRead-word.length());
+                readData += String.valueOf(buf, word.length(), BUF_LENGTH-word.length());
 
             int offset = 0;
 
-            while (offset<numRead && String.valueOf(buf, offset, numRead-offset).contains(word)) {
+            while (offset<numRead && String.valueOf(buf, offset, BUF_LENGTH-word.length()-offset).contains(word)) {
                 fileIndex = readData.indexOf(word, offset);
                 offset = fileIndex + 1;
+                if (!(answer.contains(Integer.toString(fileIndex))))
                 answer += fileIndex + " ";
             }
-            int k = 0;
 
-            for (int i = buf.length-word.length();i<buf.length;i++){
-                buf[k] = buf[i];
-                k++;
+            if (numRead == BUF_LENGTH){
+                String newData = readData.substring(BUF_LENGTH-word.length(),BUF_LENGTH);
+                readData = readData.substring(0,BUF_LENGTH-word.length());
+                newData = newData.concat(readData);
+                buf = newData.toCharArray();
             }
 
-            numRead = reader.read(subBuf,0,subBuf.length-word.length());
-
-            for(int i = 0;i<subBuf.length-word.length();i++){
-                buf[i+word.length()] = subBuf[i];
-            }
-            fileData.append(readData);
+            //fileData.append(readData);
         }
         reader.close();
 

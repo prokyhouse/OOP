@@ -62,7 +62,7 @@ public class WordFinderTest {
         }
     }
 
-    int count = 3000;
+    int count = 10000;
     public void fileGenerator() {
         FileOutputStream outputFile;
         try {
