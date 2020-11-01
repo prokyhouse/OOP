@@ -18,7 +18,7 @@ public class WordFinderTest {
         String testFile = "input.txt";
         String word = "пирог";
         String currentAnswer = wf.findWord(testFile,word);
-        Assert.assertEquals("7 ",currentAnswer);
+        Assert. assertEquals("7 ",currentAnswer);
     }
     @Test
     public void findWordTest2() throws IOException {
@@ -56,11 +56,26 @@ public class WordFinderTest {
             WordFinder wf = new WordFinder();
             String currentAnswer = wf.findWord("bigFile.txt", "StringToFind");
             System.out.println(currentAnswer.length());
-            System.out.println(currentAnswer);
         } catch (IOException var3) {
             var3.printStackTrace();
         }
     }
+
+    @Test
+    public void BigFileOneSubstring() {
+        if (!(new File("bigFile2.txt").canRead())) {
+            fileTwoGenerator();
+        }
+
+        try {
+            WordFinder wf = new WordFinder();
+            String currentAnswer = wf.findWord("bigFile2.txt", "StringToFind");
+            Assert.assertEquals("5000 ",currentAnswer);
+        } catch (IOException var3) {
+            var3.printStackTrace();
+        }
+    }
+
 
     int count = 10000;
     public void fileGenerator() {
@@ -96,4 +111,25 @@ public class WordFinderTest {
 
         return sb.toString();
     }
+
+    public void fileTwoGenerator() {
+        FileOutputStream outputFile;
+        try {
+            outputFile = new FileOutputStream("bigFile2.txt");
+            String a = "a";
+            for (int i = 0; i < count/2; i++) {
+                outputFile.write(a.getBytes());
+            }
+            a = "StringToFind";
+            outputFile.write(a.getBytes());
+            a ="a";
+            for (int i = 0; i < count/2; i++) {
+                outputFile.write(a.getBytes());
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
