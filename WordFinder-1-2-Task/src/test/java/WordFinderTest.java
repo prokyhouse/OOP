@@ -70,14 +70,14 @@ public class WordFinderTest {
         try {
             WordFinder wf = new WordFinder();
             String currentAnswer = wf.findWord("bigFile2.txt", "StringToFind");
-            Assert.assertEquals("5000 ",currentAnswer);
+            Assert.assertEquals("59999999",currentAnswer);
         } catch (IOException var3) {
             var3.printStackTrace();
         }
     }
 
 
-    int count = 10000;
+    int count = 120000000;
     public void fileGenerator() {
         FileOutputStream outputFile;
         try {
@@ -117,13 +117,13 @@ public class WordFinderTest {
         try {
             outputFile = new FileOutputStream("bigFile2.txt");
             String a = "a";
-            for (int i = 0; i < count/2; i++) {
+            for (int i = 0; i < (count/2); i++) {
                 outputFile.write(a.getBytes());
             }
             a = "StringToFind";
             outputFile.write(a.getBytes());
             a ="a";
-            for (int i = 0; i < count/2; i++) {
+            for (int i = 0; i < (count/2); i++) {
                 outputFile.write(a.getBytes());
             }
 

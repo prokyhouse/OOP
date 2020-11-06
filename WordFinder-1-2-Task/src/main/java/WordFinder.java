@@ -1,8 +1,7 @@
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.lang.*;
+import java.nio.charset.StandardCharsets;
 
 
 public class WordFinder {
@@ -31,7 +30,8 @@ public class WordFinder {
         int bufferShift = 0;
         String readData = null;
 
-        BufferedReader reader = new BufferedReader(new FileReader(file), BUF_LENGTH);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(
+                new FileInputStream(file), StandardCharsets.UTF_8), BUF_LENGTH);
 
         while ((numRead = reader.read(buf)) != -1) {
             if (readData == null) {
