@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MyCalendarTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-12-03T13:49:59" hostname="MacBook-Proko.cn.ru_novotelecom.ru" time="0.032">
+  <properties/>
+  <testcase name="FridayTh" classname="MyCalendarTest" time="0.021"/>
+  <testcase name="WhatMonthWillBe" classname="MyCalendarTest" time="0.007"/>
+  <testcase name="VictoryDay" classname="MyCalendarTest" time="0.001"/>
+  <testcase name="minus50Days" classname="MyCalendarTest" time="0.001"/>
+  <testcase name="Weekday1024" classname="MyCalendarTest" time="0.001"/>
+  <system-out><![CDATA[Заданная текущая дата: 26.11.2020
+Номер дня недели: 3 (0 - Пн и т.д.)
+
+13 8 2021 4
+2020-08-18
+18 8 2020 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
