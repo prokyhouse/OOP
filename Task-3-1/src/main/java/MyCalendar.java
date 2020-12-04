@@ -10,11 +10,7 @@ public class MyCalendar {
     public static boolean isLeapYear(int year) {
         if (year % 4 == 0) {
             if (year % 100 == 0) {
-
-                if (year % 400 == 0)
-                    return true;
-                else
-                    return false;
+                return year % 400 == 0;
             } else
                 return true;
         } else
@@ -30,7 +26,7 @@ public class MyCalendar {
         if (isLeapYear(year) && (month == 2)) {
             return 29;
         } else {
-            return (int) (28 + (month + Math.floor(month / 8)) % 2 + 2 % month + 2 * Math.floor(1 / month));
+            return (int) (28 + (month + Math.floor(month / 8.)) % 2 + 2 % month + 2 * Math.floor(1. / month));
         }
     }
 
@@ -43,10 +39,11 @@ public class MyCalendar {
     public static Date plusWeeks(Date currDate, int weeks) {
         return plusDays(currDate, weeks * 7);
     }
-    public static Date minusWeeks(Date currDate,int weeks) {return minusDays(currDate,weeks*7);}
+    public static Date minusWeeks(Date currDate,int weeks) {return minusDays(currDate,weeks * 7);}
 
     public static Date plusDays(Date currDate, int days) {
-        Date resultDate = new Date(currDate.getDay() + days,currDate.getMonth(),currDate.getYear(),(currDate.getWeekDay() + days) % 7);
+        Date resultDate = new Date(currDate.getDay() + days,currDate.getMonth(),
+                currDate.getYear(),(currDate.getWeekDay() + days) % 7);
 
         while (resultDate.getDay() > getNumberOfDaysInMonth(resultDate.getMonth(), resultDate.getYear())) {
             if (resultDate.getMonth() == 12) {
