@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class Grades {
     /**
@@ -24,18 +25,12 @@ public class Grades {
      * @return true, if the gradebook meets the conditions
      */
     public static boolean DiplomaWithHonors(Gradebook gradebook) {
-        ArrayList<Integer> grades = new ArrayList<Integer>();
+        List<Integer> grades = new ArrayList<Integer>();
         grades = gradebook.getAllGrades();
-        int fives = 0;
+        long fives = 0;
         boolean satisfactorily = false;
-        for (int grade : grades) {
-            if (grade == 5) {
-                fives++;
-            }
-            if (grade < 4) {
-                satisfactorily = true;
-            }
-        }
+        fives = grades.stream().filter(g -> g == 5).count();
+        boolean satisfactory = grades.stream().anyMatch(g -> g < 4);
         double fivesCondition = (double) fives / grades.size();
 
         return fivesCondition >= 0.75 && !satisfactorily && gradebook.getQualifyingWorkGrade() == 5;
