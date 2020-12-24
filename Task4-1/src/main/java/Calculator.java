@@ -1,5 +1,6 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class Calculator extends Arithmetic {
 
@@ -32,7 +33,7 @@ public class Calculator extends Arithmetic {
     public static double calculate(String str) {
         String[] input = str.split(" ");
 
-        Stack<Double> stack = new Stack<>();
+        Deque<Double> stack = new ArrayDeque<>();
 
         for (int i = input.length - 1; i >= 0; i--) {
             double a;
