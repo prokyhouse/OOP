@@ -179,3 +179,8 @@ gradle-app.setting
 **/build/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij,java,gradle
+Task-3-2/.idea/workspace.xml
+Task4-1/.idea/compiler.xml
+Task4-1/.idea/gradle.xml
+Task4-1/.idea/jarRepositories.xml
+Task4-1/.idea/misc.xml
