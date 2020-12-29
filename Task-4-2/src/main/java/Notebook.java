@@ -1,4 +1,7 @@
 import com.google.gson.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -9,6 +12,7 @@ public class Notebook {
 
     private final List<Note> notebook;
     private final Gson gsonData;
+    String notesFile = "Notes.json";
     DateTimeFormatter dtf;
 
     Notebook() {
@@ -27,7 +31,7 @@ public class Notebook {
         notebook.removeIf(note -> note.getText().equals(text));
     }
 
-    public String show(LocalDateTime after, LocalDateTime before,String keyWord){
+    public String show(LocalDateTime after, LocalDateTime before,String keyWord) throws IOException {
         LocalDateTime date;
         List<Note> searchResult = new ArrayList<>();;
         for (Note note: notebook) {
@@ -37,10 +41,16 @@ public class Notebook {
                 searchResult.add(note);
             }
         }
+        try (Writer writer = new FileWriter(notesFile)) {
+            gsonData.toJson(searchResult, writer);
+        }
         return gsonData.toJson(searchResult);
     }
 
-    public String show(){
+    public String show() throws IOException {
+        try (Writer writer = new FileWriter(notesFile)) {
+            gsonData.toJson(notebook, writer);
+        }
         return gsonData.toJson(notebook);
     }
 }
