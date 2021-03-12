@@ -19,7 +19,7 @@ public class ThreadPrimeCheck {
         for (int i = 0; i < THREADS; i++)
             t[i].join();
 
-        System.out.println(hasPrime);
+        System.out.println(!hasPrime);
     }
 
 
@@ -31,7 +31,7 @@ public class ThreadPrimeCheck {
 
 class PrimeRun implements Runnable {
 
-    final int[] array = {4, 8, 16};
+    final int[] array = {6997901, 6997927, 6997937, 6997967, 6998009, 6998029, 6998039, 6998051, 6998053};
     public static Monitor m;
     final int ID;
 

@@ -8,27 +8,33 @@ import java.util.stream.Stream;
 
 public class StreamPrimeCheck {
 
-        //Our prime numbers "flag".
-        static boolean hasPrime = false;
+    //Our prime numbers "flag".
+    static boolean hasPrime = false;
 
-        public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-            List<Integer> array = new ArrayList<>();
-            array.add(4);
-            array.add(8);
-            array.add(16);
-            array.add(17);
+        List<Integer> array = new ArrayList<>();
+        array.add(6997901);
+        array.add(6997927);
+        array.add(6997937);
+        array.add(6997967);
+        array.add(6998009);
+        array.add(6998029);
+        array.add(6998039);
+        array.add(6998051);
+        array.add(6998053);
 
-            Optional<Integer> n = array
-                    .parallelStream()
-                    .filter(Validation::isPrime)
-                    .findFirst();
 
-            if (n.isPresent()){
-                hasPrime =true;
-            }
+        Optional<Integer> n = array
+                .parallelStream()
+                .filter(Validation::isPrime)
+                .findFirst();
 
-            System.out.println(hasPrime);
+        if (n.isPresent()) {
+            hasPrime = true;
         }
+
+        System.out.println(!hasPrime);
+    }
 
 }

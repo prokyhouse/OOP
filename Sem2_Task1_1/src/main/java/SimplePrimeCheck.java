@@ -4,7 +4,7 @@ public class SimplePrimeCheck {
     static boolean hasPrime = false;
 
     public static void main(String[] args) throws Exception {
-        final int[] array = {4, 8, 16};
+        final int[] array = {6997901, 6997927, 6997937, 6997967, 6998009, 6998029, 6998039, 6998051, 6998053};
 
         for (int i = 0; i < array.length; i++) {
             if (Validation.isPrime(array[i])) {
@@ -13,7 +13,7 @@ public class SimplePrimeCheck {
             }
         }
 
-        System.out.println(hasPrime);
+        System.out.println(!hasPrime);
     }
 
 
