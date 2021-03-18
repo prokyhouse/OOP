@@ -1,14 +1,19 @@
+import java.util.Arrays;
+
 public class ThreadPrimeCheck {
 
     //Returns the number of processors available to the Java virtual machine. (can be optional)
-    static final int THREADS = Runtime.getRuntime().availableProcessors();
+    static int THREADS = Runtime.getRuntime().availableProcessors();
     //Our prime numbers "flag".
-    static boolean hasPrime = false;
+    static boolean hasNotPrime = false;
+    public static long[] arr;
 
-    public static void main(String[] args) throws Exception {
+    public static boolean threadRun(long[] array, int numberOfThreads) throws Exception {
 
+        THREADS = numberOfThreads;
         Thread[] t = new Thread[THREADS];
         PrimeRun.m = new Monitor();
+        arr = Arrays.copyOf(array, array.length);
 
         for (int i = 0; i < THREADS; i++) {
             t[i] = new Thread(new PrimeRun(i));
@@ -19,19 +24,23 @@ public class ThreadPrimeCheck {
         for (int i = 0; i < THREADS; i++)
             t[i].join();
 
-        System.out.println(!hasPrime);
+        return hasNotPrime;
+    }
+
+    public static long[] getArray() {
+        return arr;
     }
 
 
     public synchronized static void primeChecker() {
-        hasPrime = true;
+        hasNotPrime = true;
     }
 
 }
 
 class PrimeRun implements Runnable {
 
-    final int[] array = {6997901, 6997927, 6997937, 6997967, 6998009, 6998029, 6998039, 6998051, 6998053};
+    final long[] array = ThreadPrimeCheck.getArray();
     public static Monitor m;
     final int ID;
 
@@ -42,7 +51,7 @@ class PrimeRun implements Runnable {
     public void run() {
         for (int i = 0; i < array.length; i++) {
             if (array[i] % ThreadPrimeCheck.THREADS == ID)
-                if (Validation.isPrime(array[i]))
+                if (Validation.isNotPrime(array[i]))
                     m.addPrime();
         }
     }

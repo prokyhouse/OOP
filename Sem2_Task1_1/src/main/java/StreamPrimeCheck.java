@@ -9,32 +9,22 @@ import java.util.stream.Stream;
 public class StreamPrimeCheck {
 
     //Our prime numbers "flag".
-    static boolean hasPrime = false;
+    static boolean hasNotPrime = false;
 
-    public static void main(String[] args) throws Exception {
+    public static boolean streamRun(Long[] array) {
 
-        List<Integer> array = new ArrayList<>();
-        array.add(6997901);
-        array.add(6997927);
-        array.add(6997937);
-        array.add(6997967);
-        array.add(6998009);
-        array.add(6998029);
-        array.add(6998039);
-        array.add(6998051);
-        array.add(6998053);
+        List<Long> list = Arrays.asList(array);
 
-
-        Optional<Integer> n = array
+        Optional<Long> n = list
                 .parallelStream()
-                .filter(Validation::isPrime)
+                .filter(Validation::isNotPrime)
                 .findFirst();
 
         if (n.isPresent()) {
-            hasPrime = true;
+            hasNotPrime = true;
         }
 
-        System.out.println(!hasPrime);
+        return hasNotPrime;
     }
 
 }
