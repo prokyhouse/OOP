@@ -8,9 +8,15 @@ public class ThreadPrimeCheck {
     static boolean hasNotPrime = false;
     public static long[] arr;
 
+    /**
+     * @param array           to verify
+     * @param numberOfThreads if its needed, otherwise - all available processors
+     * @return has it prime or not
+     * @throws Exception
+     */
     public static boolean threadRun(long[] array, int numberOfThreads) throws Exception {
 
-        THREADS = numberOfThreads;
+        if (numberOfThreads > 0 && numberOfThreads < THREADS) THREADS = numberOfThreads;
         Thread[] t = new Thread[THREADS];
         PrimeRun.m = new Monitor();
         arr = Arrays.copyOf(array, array.length);
@@ -31,7 +37,6 @@ public class ThreadPrimeCheck {
         return arr;
     }
 
-
     public synchronized static void primeChecker() {
         hasNotPrime = true;
     }
@@ -49,19 +54,21 @@ class PrimeRun implements Runnable {
     }
 
     public void run() {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] % ThreadPrimeCheck.THREADS == ID)
-                if (Validation.isNotPrime(array[i]))
-                    m.addPrime();
+        for (long l : array) {
+            if (l % ThreadPrimeCheck.THREADS == ID && Validation.isNotPrime(l)) {
+                m.addNotPrime();
+                break;
+            }
         }
     }
 }
+
 
 /**
  * Monitor would make sure that only one thread is executing the code in the critical section
  */
 class Monitor {
-    public synchronized void addPrime() {
+    public synchronized void addNotPrime() {
         ThreadPrimeCheck.primeChecker();
     }
 }
