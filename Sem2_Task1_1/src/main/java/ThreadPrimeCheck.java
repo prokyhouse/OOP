@@ -18,7 +18,6 @@ public class ThreadPrimeCheck {
 
         if (numberOfThreads > 0 && numberOfThreads < THREADS) THREADS = numberOfThreads;
         Thread[] t = new Thread[THREADS];
-        PrimeRun.m = new Monitor();
         arr = Arrays.copyOf(array, array.length);
 
         for (int i = 0; i < THREADS; i++) {
@@ -37,7 +36,7 @@ public class ThreadPrimeCheck {
         return arr;
     }
 
-    public synchronized static void primeChecker() {
+    public synchronized static void setHasNotPrime() {
         hasNotPrime = true;
     }
 
@@ -46,7 +45,6 @@ public class ThreadPrimeCheck {
 class PrimeRun implements Runnable {
 
     final long[] array = ThreadPrimeCheck.getArray();
-    public static Monitor m;
     final int ID;
 
     public PrimeRun(int i) {
@@ -56,19 +54,9 @@ class PrimeRun implements Runnable {
     public void run() {
         for (long l : array) {
             if (l % ThreadPrimeCheck.THREADS == ID && Validation.isNotPrime(l)) {
-                m.addNotPrime();
+                ThreadPrimeCheck.setHasNotPrime();
                 break;
             }
         }
-    }
-}
-
-
-/**
- * Monitor would make sure that only one thread is executing the code in the critical section
- */
-class Monitor {
-    public synchronized void addNotPrime() {
-        ThreadPrimeCheck.primeChecker();
     }
 }
