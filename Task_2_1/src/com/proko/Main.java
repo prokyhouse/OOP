@@ -67,7 +67,7 @@ public class Main extends Application {
     public void start(Stage PrimaryStage) {
 
         //Fills Grid with Gray Squares
-        FillGrid();
+        fillGrid();
 
         //Constructing Snake's Heads
         snakeP.add(new Snake(posX, posY));
@@ -102,7 +102,7 @@ public class Main extends Application {
         Scene game = new Scene(screen);
 
         //Detects a Key Being Pressed
-        game.setOnKeyPressed(this::KeyPressedProcess);
+        game.setOnKeyPressed(this::keyPressedProcess);
 
         //Generates Window
         PrimaryStage.setTitle("ProkoSnake");
@@ -114,26 +114,26 @@ public class Main extends Application {
                 event -> {
 
                     //Moves Snake
-                    MoveUserSnake();
-                    MovePCSnake();
+                    moveUserSnake();
+                    movePCSnake();
                 }));
         // Loop will run endlessly
         loop.setCycleCount(Timeline.INDEFINITE);
     }
 
-    public void MoveUserSnake() {
+    public void moveUserSnake() {
         //WALL CRASH
         if (deltaX == -1 && (posX == 0)) {
-            Die();
+            die();
             deltaX = 0;
         } else if (deltaY == -1 && (posY == 0)) {
-            Die();
+            die();
             deltaY = 0;
         } else if (deltaX == 1 && (posX == gridSizeSquared - 1)) {
-            Die();
+            die();
             deltaX = 0;
         } else if (deltaY == 1 && (posY == gridSizeSquared - 1)) {
-            Die();
+            die();
             deltaY = 0;
         } else {
 
@@ -158,20 +158,20 @@ public class Main extends Application {
             //FOOD WAS FOUND
             if (posX == foodPosX && posY == foodPosY) {
                 //Grows Snake duh
-                Grow(snakeP);
+                grow(snakeP);
             }
 
             //BODY CRASH
             for (int x = 1; x < snakeP.size(); x++) {
                 if (posX == snakeP.get(x).getXpos() && posY == snakeP.get(x).getYpos()) {
-                    Die();
+                    die();
                 }
             }
         }
     }
 
 
-    public void MovePCSnake() {
+    public void movePCSnake() {
 
         //Updates head position
         gameGrid.getChildren().remove(snakePC.get(0).body);
@@ -206,19 +206,19 @@ public class Main extends Application {
         //FOOD WAS FOUND
         if (pcPosX == foodPosX && pcPosY == foodPosY) {
             //Grows Snake duh
-            Grow(snakePC);
+            grow(snakePC);
         }
 
         //BODY CRASH
         for (int x = 1; x < snakePC.size(); x++) {
             if (pcPosX == snakePC.get(x).getXpos() && pcPosY == snakePC.get(x).getYpos()) {
-                Die();
+                die();
             }
         }
     }
 
     //Detects Key Presses
-    public void KeyPressedProcess(KeyEvent event) {
+    public void keyPressedProcess(KeyEvent event) {
         //If you GameOver and Restart
         if (!start && dead && event.getCode() == KeyCode.ENTER) {
             pause.setText("Нажмите [Enter], чтобы прервать");
@@ -243,40 +243,36 @@ public class Main extends Application {
         if (deltaY == 0 && (event.getCode() == KeyCode.W || event.getCode() == KeyCode.UP)) {
             deltaX = 0;
             deltaY = -1;
-        }
-        //Changes direction to DOWN when down/S is pressed
-        else if (deltaY == 0 && (event.getCode() == KeyCode.S || event.getCode() == KeyCode.DOWN)) {
+        } else if (deltaY == 0 && (event.getCode() == KeyCode.S || event.getCode() == KeyCode.DOWN)) {
             deltaX = 0;
             deltaY = 1;
-        }
-        //Changes direction to Left when left/A is pressed
-        else if (deltaX == 0 && (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT)) {
+        } else if (deltaX == 0 && (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT)) {
             deltaX = -1;
             deltaY = 0;
-        }
-        //Changes direction to Right when right/D is pressed
-        else if (deltaX == 0 && (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT)) {
+        } else if (deltaX == 0 && (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT)) {
             deltaX = 1;
             deltaY = 0;
         }
 
         //Closes program when escape is pressed
-        if (event.getCode() == KeyCode.ESCAPE)
+        if (event.getCode() == KeyCode.ESCAPE) {
             System.exit(0);
+        }
     }
 
     //Fills Grid with rectangles
-    public void FillGrid() {
+    public void fillGrid() {
         for (int x = 0; x < gridSizeSquared; x++) {
             gameGrid.addColumn(x, new Rectangle(12, 12, Color.GRAY));
 
-            for (int y = 1; y < gridSizeSquared; y++)
+            for (int y = 1; y < gridSizeSquared; y++) {
                 gameGrid.addRow(y, new Rectangle(12, 12, Color.GRAY));
+            }
         }
     }
 
     //Changes randomly Food's position
-    public void PlaceFood() {
+    public void placeFood() {
         Random rPos = new Random();
 
         int newPosX = rPos.nextInt(gridSizeSquared);
@@ -290,7 +286,7 @@ public class Main extends Application {
     }
 
     //Grows Snake's Body
-    public void Grow(ArrayList<Snake> Snake) {
+    public void grow(ArrayList<Snake> Snake) {
         //Adds new Tail where last Tail's position was
         Snake.add(new Snake(Snake.get(Snake.size() - 1).getOldXpos(),
                 Snake.get(Snake.size() - 1).getOldYpos()));
@@ -299,12 +295,12 @@ public class Main extends Application {
                 Snake.get(Snake.size() - 1).getOldXpos(),
                 Snake.get(Snake.size() - 1).getOldYpos());
 
-        PlaceFood();
+        placeFood();
 
     }
 
     //Game Over
-    public void Die() {
+    public void die() {
 
         int size = snakeP.size();
 
