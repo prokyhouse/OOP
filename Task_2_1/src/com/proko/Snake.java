@@ -13,9 +13,11 @@ class Snake {
     private int oldXpos;
     private int oldYpos;
 
-    Snake(int X, int Y) {
-        oldXpos = xpos = X;
-        oldYpos = ypos = Y;
+    Snake(int x, int y) {
+        oldXpos = x;
+        xpos = x;
+        oldYpos = y;
+        ypos = y;
     }
 
     public void setSnakeColor(Color snakeColor) {
