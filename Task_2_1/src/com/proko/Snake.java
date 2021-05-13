@@ -3,46 +3,48 @@ package com.proko;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-class Snake
-{
-    Color snakeColor = Color.GREENYELLOW;
+class Snake {
+    private final Color snakeColor = Color.GREENYELLOW;
 
-    public Rectangle body = new Rectangle(12,12, snakeColor); //SNAKE BODY
+    public Rectangle body = new Rectangle(12, 12, snakeColor); //SNAKE BODY
 
-    private int Xpos;
-    private int Ypos;
+    private int xpos;
+    private int ypos;
     private int oldXpos;
     private int oldYpos;
 
-    Snake(int X, int Y)
-    {
-        oldXpos = Xpos = X;
-        oldYpos = Ypos = Y;
+    Snake(int X, int Y) {
+        oldXpos = xpos = X;
+        oldYpos = ypos = Y;
     }
 
-    public void setSnakeColor(Color snakeColor){
-        body = new Rectangle(12,12, snakeColor);
+    public void setSnakeColor(Color snakeColor) {
+        int size = 12;
+        body = new Rectangle(size, size, snakeColor);
     }
 
-    public void setPos(int X, int Y)
-    {
-        oldXpos =Xpos;
-        oldYpos =Ypos;
+    public void setPos(int x, int y) {
+        oldXpos = xpos;
+        oldYpos = ypos;
 
-        Xpos =X;
-        Ypos =Y;
+        xpos = x;
+        ypos = y;
     }
 
-    public int getOldXpos()
-    { return oldXpos; }
+    public int getOldXpos() {
+        return oldXpos;
+    }
 
-    public int getOldYpos()
-    {return oldYpos;}
+    public int getOldYpos() {
+        return oldYpos;
+    }
 
-    public int getXpos()
-    {return Xpos; }
+    public int getXpos() {
+        return xpos;
+    }
 
-    public int getYpos()
-    {return Ypos; }
+    public int getYpos() {
+        return ypos;
+    }
 
 }

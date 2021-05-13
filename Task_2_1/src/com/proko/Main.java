@@ -1,6 +1,5 @@
 package com.proko;
 
-
 import javafx.animation.Timeline;
 import javafx.stage.Stage;
 import javafx.util.Duration;
