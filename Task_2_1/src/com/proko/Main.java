@@ -64,7 +64,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    public void start(Stage PrimaryStage) {
+    public void start(Stage primaryStage) {
 
         //Fills Grid with Gray Squares
         fillGrid();
@@ -105,9 +105,9 @@ public class Main extends Application {
         game.setOnKeyPressed(this::keyPressedProcess);
 
         //Generates Window
-        PrimaryStage.setTitle("ProkoSnake");
-        PrimaryStage.setScene(game);
-        PrimaryStage.show();
+        primaryStage.setTitle("ProkoSnake");
+        primaryStage.setScene(game);
+        primaryStage.show();
 
         //Initializing Loop as timeline.
         loop = new Timeline(new KeyFrame(Duration.seconds(loopSpeed),
@@ -286,14 +286,14 @@ public class Main extends Application {
     }
 
     //Grows Snake's Body
-    public void grow(ArrayList<Snake> Snake) {
+    public void grow(ArrayList<Snake> snake) {
         //Adds new Tail where last Tail's position was
-        Snake.add(new Snake(Snake.get(Snake.size() - 1).getOldXpos(),
-                Snake.get(Snake.size() - 1).getOldYpos()));
+        snake.add(new Snake(snake.get(snake.size() - 1).getOldXpos(),
+                snake.get(snake.size() - 1).getOldYpos()));
 
-        gameGrid.add(Snake.get(Snake.size() - 1).body,
-                Snake.get(Snake.size() - 1).getOldXpos(),
-                Snake.get(Snake.size() - 1).getOldYpos());
+        gameGrid.add(snake.get(snake.size() - 1).body,
+                snake.get(snake.size() - 1).getOldXpos(),
+                snake.get(snake.size() - 1).getOldYpos());
 
         placeFood();
 
