@@ -26,7 +26,9 @@ public class Baker implements Runnable {
             this.itemsInStorage = itemsInStorage;
             this.waitingOrders = waitingOrders;
             this.pizzeriaOverview = pizzeriaOverview;
-        } else throw new NullPointerException();
+        } else {
+            throw new NullPointerException();
+        }
     }
 
     public boolean isWaitingForOrder() {
