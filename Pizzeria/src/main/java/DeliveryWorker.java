@@ -29,7 +29,9 @@ public class DeliveryWorker implements Runnable {
             this.bag = new ArrayList<>();
             this.pizzeriaOverview = pizzeriaOverview;
             this.itemsInStorage = itemsInStorage;
-        } else throw new NullPointerException();
+        } else {
+            throw new NullPointerException();
+        }
     }
 
     /**
