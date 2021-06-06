@@ -53,21 +53,17 @@ public class Baker implements Runnable {
             Order currentOrder = null;
             try {
                 currentOrder = waitingOrders.take();
-            } catch (InterruptedException e) {
-                assert false;
-            }
-            try {
                 this.waitingForOrder = true;
                 bakers.lock.lock();
                 if (pizzeriaOverview.isRestaurantClosed() && waitingOrders.isEmpty()) {
                     break;
                 }
                 this.waitingForOrder = false;
-                try {
                     Thread.sleep(cookingTime);
-                } catch (InterruptedException e) {
-                    assert false;
-                }
+
+
+            } catch (InterruptedException e) {
+                assert false;
             } finally {
                 bakers.lock.unlock();
             }
